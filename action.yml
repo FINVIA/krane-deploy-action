@@ -1,0 +1,36 @@
+name: 'Deploy to EKS'
+description: 'Deploy to EKS'
+inputs:
+  cluster_name:
+    description: Name of the Kubernetes cluster
+    required: true
+  cluster_server:
+    description: Server address of the Kubernetes cluster
+    required: true
+  cluster_user:
+    description: Name of the Kubernetes cluster user
+    required: true
+  commit_id:
+    description: ID of the commit that needs to be depoloyed
+    required: true
+  environment:
+    description: Name of the krane environment in config/deploy
+    required: true
+  kubernetes_bearer_token:
+    description: Bearer token of the cluster role
+    required: true
+  namespace:
+    description: Namespace into which the resource needs to be deployed
+    required: true
+runs:
+  using: 'docker'
+  image: 'docker://finvia/krane:1.1.4'
+  env:
+    CLUSTER_NAME: ${{ inputs.cluster_name }}
+    CLUSTER_SERVER: ${{ inputs.cluster_server }}
+    CLUSTER_USER: ${{ inputs.cluster_user }}
+    COMMIT_ID: ${{ inputs.commit_id }}
+    ENVIRONMENT: ${{ inputs.environment }}
+    KUBERNETES_BEARER_TOKEN: ${{ inputs.kubernetes_bearer_token }}
+    NAMESPACE: ${{ inputs.namespace }}
+  entrypoint: '/bin/deploy'
