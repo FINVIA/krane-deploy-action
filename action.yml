@@ -33,4 +33,4 @@ runs:
     ENVIRONMENT: ${{ inputs.environment }}
     KUBERNETES_BEARER_TOKEN: ${{ inputs.kubernetes_bearer_token }}
     NAMESPACE: ${{ inputs.namespace }}
-  entrypoint: 'sudo /bin/deploy'
+  entrypoint: '/bin/deploy'
