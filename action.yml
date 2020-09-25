@@ -33,4 +33,5 @@ runs:
     ENVIRONMENT: ${{ inputs.environment }}
     KUBERNETES_BEARER_TOKEN: ${{ inputs.kubernetes_bearer_token }}
     NAMESPACE: ${{ inputs.namespace }}
-  entrypoint: '/bin/deploy'
+  args:
+    - 'krane render -f ./config/deploy/$ENVIRONMENT --current-sha $COMMIT_ID | krane deploy -f ./config/deploy/$ENVIRONMENT/secrets.ejson --stdin $NAMESPACE $CLUSTER_NAME'
