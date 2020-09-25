@@ -32,4 +32,3 @@ runs:
     KUBERNETES_BEARER_TOKEN: ${{ inputs.kubernetes_bearer_token }}
   args:
     - 'ls'
-    - 'krane render -f ./config/deploy/${{ inputs.environment }} --current-sha ${{ inputs.commit_id }} | krane deploy -f ./config/deploy/${{ inputs.environment }}/secrets.ejson --stdin ${{ inputs.namespace }} ${{ inputs.cluster_name }}'
