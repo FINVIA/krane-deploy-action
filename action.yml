@@ -29,9 +29,6 @@ runs:
     CLUSTER_NAME: ${{ inputs.cluster_name }}
     CLUSTER_SERVER: ${{ inputs.cluster_server }}
     CLUSTER_USER: ${{ inputs.cluster_user }}
-    COMMIT_ID: ${{ inputs.commit_id }}
-    ENVIRONMENT: ${{ inputs.environment }}
     KUBERNETES_BEARER_TOKEN: ${{ inputs.kubernetes_bearer_token }}
-    NAMESPACE: ${{ inputs.namespace }}
   args:
-    - 'krane render -f ./config/deploy/$ENVIRONMENT --current-sha $COMMIT_ID | krane deploy -f ./config/deploy/$ENVIRONMENT/secrets.ejson --stdin $NAMESPACE $CLUSTER_NAME'
+    - 'krane render -f ./config/deploy/${{ inputs.environment }} --current-sha ${{ inputs.commit_id }} | krane deploy -f ./config/deploy/${{ inputs.environment }}/secrets.ejson --stdin ${{ inputs.namespace }} ${{ inputs.cluster_name }}'
