@@ -31,4 +31,4 @@ runs:
     CLUSTER_USER: ${{ inputs.cluster_user }}
     KUBERNETES_BEARER_TOKEN: ${{ inputs.kubernetes_bearer_token }}
   args:
-    - 'ls config/deploy'
+    - 'ls config'
