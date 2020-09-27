@@ -30,4 +30,6 @@ runs:
     CLUSTER_SERVER: ${{ inputs.cluster_server }}
     CLUSTER_USER: ${{ inputs.cluster_user }}
     KUBERNETES_BEARER_TOKEN: ${{ inputs.kubernetes_bearer_token }}
-  entrypoint: "ls -la"
+  entrypoint: "sh -c"
+  args:
+    - "ls -la"
