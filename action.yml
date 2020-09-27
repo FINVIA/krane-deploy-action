@@ -24,7 +24,7 @@ inputs:
     required: true
 runs:
   using: 'docker'
-  image: 'docker://finvia/krane:1.1.4.4'
+  image: 'docker://finvia/krane:1.1.4.6'
   env:
     CLUSTER_NAME: ${{ inputs.cluster_name }}
     CLUSTER_SERVER: ${{ inputs.cluster_server }}
