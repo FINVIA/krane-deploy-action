@@ -10,17 +10,8 @@ inputs:
   cluster_user:
     description: Name of the Kubernetes cluster user
     required: true
-  commit_id:
-    description: ID of the commit that needs to be depoloyed
-    required: true
-  environment:
-    description: Name of the krane environment in config/deploy
-    required: true
   kubernetes_bearer_token:
     description: Bearer token of the cluster role
-    required: true
-  namespace:
-    description: Namespace into which the resource needs to be deployed
     required: true
 runs:
   using: 'docker'
